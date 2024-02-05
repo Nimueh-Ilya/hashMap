@@ -63,9 +63,31 @@ class hashMap {
   clear() {
     this.bucket = new Array(16).fill(null);
   }
+  remove(key) {
+    if (!this.has(key)) {
+      return false;
+    } else {
+      let temp = this.bucket[this.hashkey(key)];
+      while (temp != null) {
+        if (
+          this.bucket[this.hashkey(key)].key == key &&
+          this.bucket[this.hashkey(key)].next == null
+        ) {
+          this.bucket[this.hashkey(key)] = null;
+        }
+        if (temp.key == key) {
+          let holder = { ...temp.next };
+          console.log(holder);
+          console.log(temp);
+          temp = 5;
+          return true;
+        }
+        temp = temp.nextNode;
+      }
+    }
+  }
 }
 const newMap = new hashMap();
 newMap.set("Aymen", "Loudiy");
-console.log(newMap.bucket);
-newMap.clear();
+console.log(newMap.remove("Aymen"));
 console.log(newMap.bucket);
