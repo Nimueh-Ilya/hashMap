@@ -143,9 +143,3 @@ class hashMap {
     return entriesArray;
   }
 }
-const newMap = new hashMap();
-newMap.set("Aymen", "Loudiy");
-newMap.set("Aymen1", "Loudiy");
-newMap.set("Aymen2", "Loudiy");
-newMap.set("Aymen6", "Loudiy");
-console.log(newMap.entries());
