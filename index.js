@@ -86,8 +86,22 @@ class hashMap {
       }
     }
   }
+  lengths() {
+    let count = 0;
+    this.bucket.forEach((elem) => {
+      let temp = elem;
+      if (elem != null) {
+        count++;
+        while (temp.next != null) {
+          count++;
+          temp = temp.next;
+        }
+      }
+    });
+    return count;
+  }
 }
 const newMap = new hashMap();
 newMap.set("Aymen", "Loudiy");
-console.log(newMap.remove("Aymen"));
 console.log(newMap.bucket);
+console.log(newMap.lengths());
