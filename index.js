@@ -128,10 +128,24 @@ class hashMap {
     });
     return valuesArray;
   }
+  entries() {
+    let entriesArray = [];
+    this.bucket.forEach((elem) => {
+      let temp = elem;
+      if (elem != null) {
+        entriesArray.push([elem.key, elem.value]);
+        while (temp.next != null) {
+          entriesArray.push([temp.key, temp.value]);
+          temp = temp.next;
+        }
+      }
+    });
+    return entriesArray;
+  }
 }
 const newMap = new hashMap();
 newMap.set("Aymen", "Loudiy");
 newMap.set("Aymen1", "Loudiy");
 newMap.set("Aymen2", "Loudiy");
 newMap.set("Aymen6", "Loudiy");
-console.log(newMap.values());
+console.log(newMap.entries());
