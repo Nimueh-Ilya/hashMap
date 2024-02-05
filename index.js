@@ -86,7 +86,7 @@ class hashMap {
       }
     }
   }
-  lengths() {
+  getLength() {
     let count = 0;
     this.bucket.forEach((elem) => {
       let temp = elem;
@@ -100,8 +100,21 @@ class hashMap {
     });
     return count;
   }
+  keys() {
+    let keysArray = [];
+    this.bucket.forEach((elem) => {
+      let temp = elem;
+      if (elem != null) {
+        keysArray.push(elem.key);
+        while (temp.next != null) {
+          keysArray.push(temp.key);
+          temp = temp.next;
+        }
+      }
+    });
+    return keysArray;
+  }
 }
 const newMap = new hashMap();
 newMap.set("Aymen", "Loudiy");
-console.log(newMap.bucket);
-console.log(newMap.lengths());
+console.log(newMap.keys());
