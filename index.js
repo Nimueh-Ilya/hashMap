@@ -60,6 +60,12 @@ class hashMap {
       return false;
     }
   }
+  clear() {
+    this.bucket = new Array(16).fill(null);
+  }
 }
 const newMap = new hashMap();
 newMap.set("Aymen", "Loudiy");
+console.log(newMap.bucket);
+newMap.clear();
+console.log(newMap.bucket);
