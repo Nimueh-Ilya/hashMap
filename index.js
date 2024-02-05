@@ -46,6 +46,20 @@ class hashMap {
       return null;
     }
   }
+  has(key) {
+    if (this.bucket[this.hashkey(key)] == null) {
+      return false;
+    } else {
+      let temp = this.bucket[this.hashkey(key)];
+      while (temp != null) {
+        if (temp.key == key) {
+          return true;
+        }
+        temp = temp.nextNode;
+      }
+      return false;
+    }
+  }
 }
 const newMap = new hashMap();
 newMap.set("Aymen", "Loudiy");
